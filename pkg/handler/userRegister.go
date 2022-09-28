@@ -30,7 +30,7 @@ func Register(ctx *fiber.Ctx) error {
 		return err
 	}
 
-	user := models.User{ID: database.GetID(), Username: body.Username, Password: body.Password, Email: body.Email}
+	user := models.User{ID: database.GetID(), Login: body.Username, Password: body.Password, Email: body.Email}
 	result := db.Create(&user)
 	if result.Error != nil {
 		return result.Error

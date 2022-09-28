@@ -25,7 +25,7 @@ func ConnectDb() {
 		log.Fatal("Failed to setup snowflake generator. \n", err)
 	}
 
-	dsn := "host=postgres user=postgres password=postgres dbname=postgres port=5432 sslmode=disable"
+	dsn := "host=localhost user=postgres password=postgres dbname=postgres port=5432 sslmode=disable"
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{
 		Logger: logger.Default.LogMode(logger.Info),
 	})

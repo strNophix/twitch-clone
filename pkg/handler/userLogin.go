@@ -31,7 +31,7 @@ func Login(ctx *fiber.Ctx) error {
 	}
 
 	user := new(models.User)
-	result := db.Where(&models.User{Username: body.Username, Password: body.Password}).Select("id").First(user)
+	result := db.Where(&models.User{Login: body.Username, Password: body.Password}).Select("id").First(user)
 
 	if result.Error != nil {
 		return errors.New("invalid combination of username and password")
