@@ -18,11 +18,7 @@ const getStyling = (variant?: ButtonVariants) => {
   }
 };
 
-const Button: FC<ButtonProps> = ({
-  className,
-  variant,
-  ...rest
-}: ButtonProps) => {
+const Button: FC<ButtonProps> = ({ className, variant, ...rest }) => {
   return (
     <button
       className={clsx("rounded-md", getStyling(variant), className)}

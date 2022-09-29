@@ -20,7 +20,7 @@ const NavBar: FC = () => {
   };
 
   return (
-    <nav className="bg-zinc-800 w-screen font-semibold">
+    <nav className="bg-zinc-800 w-screen font-semibold border-b border-b-black">
       <div className="flex flex-row justify-between items-center mx-2">
         <div className="basis-1/4">
           <ul className="flex flex-row space-x-8 items-center">

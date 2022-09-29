@@ -1,12 +1,11 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { Dialog } from "@headlessui/react";
 import { createPortal } from "react-dom";
 import { Tab } from "@headlessui/react";
-import clsx from "clsx";
-import FormField from "./FormField";
-import Button from "./Button";
-import InlineLink from "./InlineLink";
 import logo from "../assets/images/logo.png";
+import LoginForm from "./LoginForm";
+import LoginModalTab from "./LoginModalTab";
+import SignupForm from "./SignupForm";
 
 export interface LoginModelProps {
   isOpen: boolean;
@@ -39,67 +38,11 @@ const LoginModal: FC<LoginModelProps> = ({ defaultPage, isOpen, onClose }) => {
               </Tab>
             </Tab.List>
             <Tab.Panels className="mt-4">
-              <Tab.Panel className="space-y-4">
-                <FormField
-                  id="login-username"
-                  label="Username"
-                  className="py-2 px-2 outline-2 w-full"
-                  autoFocus
-                />
-                <FormField
-                  id="login-password"
-                  label="Password"
-                  type="password"
-                  className="py-2 px-2 outline-2 w-full"
-                  bottomElement={
-                    <InlineLink to="#" className="block mt-2">
-                      Trouble logging in?
-                    </InlineLink>
-                  }
-                />
-                <Button className="bg-violet-500 w-full font-semibold py-2 text-sm">
-                  Log In
-                </Button>
+              <Tab.Panel>
+                <LoginForm />
               </Tab.Panel>
-              <Tab.Panel className="space-y-4">
-                <p className="text-sm">
-                  Creating an account allows you to participate in chat, follow
-                  your favorite channels, and broadcast from your own channel.
-                </p>
-                <FormField
-                  id="signup-username"
-                  label="Username"
-                  className="py-2 px-2 outline-2 w-full"
-                  autoFocus
-                />
-                <FormField
-                  id="signup-password"
-                  label="Password"
-                  type="password"
-                  className="py-2 px-2 outline-2 w-full"
-                />
-                <FormField
-                  id="signup-confirm-password"
-                  label="Confirm Password"
-                  type="password"
-                  className="py-2 px-2 outline-2 w-full"
-                />
-                <FormField
-                  id="signup-email"
-                  label="Email"
-                  type="email"
-                  className="py-2 px-2 outline-2 w-full"
-                />
-                <p className="text-sm text-center">
-                  By clicking Sign Up, you are agreeing to twitch-clone's{" "}
-                  <InlineLink to="https://tosdr.org/en/service/200" external>
-                    Terms of Service
-                  </InlineLink>
-                  .
-                </p>
-                <Button className="bg-violet-500 w-full font-semibold py-2 text-sm">
-                  Sign Up
-                </Button>
+              <Tab.Panel>
+                <SignupForm />
               </Tab.Panel>
             </Tab.Panels>
           </Tab.Group>
@@ -107,22 +50,6 @@ const LoginModal: FC<LoginModelProps> = ({ defaultPage, isOpen, onClose }) => {
       </div>
     </Dialog>,
     document.body
-  );
-};
-
-interface LoginModalTabProps extends React.ComponentPropsWithoutRef<"p"> {
-  selected: boolean;
-}
-
-const LoginModalTab: FC<LoginModalTabProps> = ({ selected, ...rest }) => {
-  return (
-    <p
-      className={clsx(
-        "font-semibold p-1",
-        selected && "text-violet-400 border-b-2 border-b-violet-400"
-      )}
-      {...rest}
-    />
   );
 };
 

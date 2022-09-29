@@ -39,3 +39,14 @@ export interface FollowedStreams {
   data: Stream[];
   pagination: Pagination;
 }
+
+export interface Category {
+  id: string;
+  name: string;
+  box_art_url: string;
+}
+
+export interface SearchCategories {
+  data: Category[];
+  pagination: Pagination;
+}

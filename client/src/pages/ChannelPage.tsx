@@ -52,8 +52,8 @@ function ChannelPage() {
           <div className="w-5" />
         </div>
         <div className="flex-1 overflow-scrollbar">
-          {new Array(60).fill(0).map(() => (
-            <ChatMessage />
+          {new Array(60).fill(0).map((_, i) => (
+            <ChatMessage key={i} />
           ))}
         </div>
         <div className="m-2">

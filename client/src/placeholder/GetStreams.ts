@@ -15,7 +15,7 @@ const streams: FollowedStreams = {
       started_at: "2021-03-10T15:04:21Z",
       language: "es",
       thumbnail_url:
-        "https://static-cdn.jtvnw.net/previews-ttv/live_user_auronplay-{width}x{height}.jpg",
+        "https://static-cdn.jtvnw.net/previews-ttv/live_user_auronplay-250x250.jpg",
       tag_ids: [],
       is_mature: false,
     },
@@ -32,7 +32,7 @@ const streams: FollowedStreams = {
       started_at: "2022-09-29T14:04:21Z",
       language: "en",
       thumbnail_url:
-        "https://static-cdn.jtvnw.net/previews-ttv/live_user_xqcow-{width}x{height}.jpg",
+        "https://static-cdn.jtvnw.net/previews-ttv/live_user_xqcow-250x250.jpg",
       tag_ids: [],
       is_mature: false,
     },

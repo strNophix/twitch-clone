@@ -6,16 +6,10 @@ interface SideNavChannelProps {
   stream: Stream;
 }
 
-const SideNavChannel: FC<SideNavChannelProps> = ({
-  stream,
-}: SideNavChannelProps) => {
-  const imgSrc = stream.thumbnail_url
-    .replace("{width}", "150")
-    .replace("{height}", "150");
-
+const SideNavChannel: FC<SideNavChannelProps> = ({ stream }) => {
   return (
     <div className="flex flex-row px-3 py-2 text-sm leading-4 space-x-2 hover:bg-neutral-700/40 cursor-pointer">
-      <img className="rounded-full w-8 h-8" src={imgSrc} />
+      <img className="rounded-full w-8 h-8" src={stream.thumbnail_url} />
       <div className="flex flex-col flex-1">
         <div className="flex flex-row justify-between">
           <div className="font-bold">{stream.user_name}</div>
