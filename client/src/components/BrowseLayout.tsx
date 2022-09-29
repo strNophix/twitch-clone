@@ -13,7 +13,7 @@ function BrowseLayout() {
       <main className="flex-1 flex flex-row overflow-hidden">
         <div className="bg-neutral-800 w-60 flex flex-col">
           <div className="flex flex-row justify-between p-2 items-center">
-            <p className="uppercase font-semibold text-sm">Followed channels</p>
+            <p className="uppercase font-semibold text-sm">Trending channels</p>
             <Button variant="subtle" className="p-2">
               <ArrowLeftIcon className="w-4 h-4" />
             </Button>
