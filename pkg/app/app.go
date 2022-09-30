@@ -10,10 +10,10 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
+	"github.com/gofiber/fiber/v2/middleware/csrf"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 )
 
-/*Init : set the port,cors,api and then serve the api*/
 func Init() {
 	app := fiber.New(fiber.Config{
 		ErrorHandler: func(ctx *fiber.Ctx, err error) error {
@@ -33,6 +33,10 @@ func Init() {
 		AllowCredentials: true,
 	}))
 	app.Use(logger.New())
+	app.Use(csrf.New(csrf.Config{
+		CookieHTTPOnly: true,
+		CookieSameSite: "strict",
+	}))
 
 	api := app.Group("/api")
 	v1 := api.Group("/v1")
@@ -46,7 +50,7 @@ func Init() {
 		return c.SendString("This is a protected route!")
 	})
 
-	// Serve SPA
+	// Serve React frontend
 	app.Static("/", "./dist")
 	app.Get("/*", func(ctx *fiber.Ctx) error {
 		return ctx.SendFile("./dist/index.html")
