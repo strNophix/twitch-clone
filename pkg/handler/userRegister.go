@@ -41,5 +41,12 @@ func Register(ctx *fiber.Ctx) error {
 		return err
 	}
 
+	ctx.Cookie(&fiber.Cookie{
+		Name:     "accessToken",
+		Value:    token,
+		HTTPOnly: true,
+		SameSite: "Strict",
+	})
+
 	return ctx.JSON(LoginResponse{Token: token})
 }
