@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { numFormatter } from '../lib/format';
+import { numFormatter } from '../utils/format';
 import { Stream } from '../types';
 
 interface SideNavChannelProps {
