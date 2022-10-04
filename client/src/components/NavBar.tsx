@@ -1,9 +1,11 @@
-import { TvIcon, UserIcon } from "@heroicons/react/24/outline";
+import { UserIcon } from "@heroicons/react/24/outline";
 import { FC, useState } from "react";
+
+import logo from "../assets/images/logo.png";
+
 import Button from "./Button";
 import Input from "./Input";
 import LoginModal from "./LoginModal";
-import logo from "../assets/images/logo.png";
 
 const NavBar: FC = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -25,7 +27,7 @@ const NavBar: FC = () => {
         <div className="basis-1/4">
           <ul className="flex flex-row space-x-8 items-center">
             <li>
-              <img src={logo} className="w-8 h-8" />
+              <img src={logo} className="w-8 h-8" alt="logo" />
             </li>
             <li>
               <p className="text-lg">Browse</p>

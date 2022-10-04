@@ -1,4 +1,5 @@
-import { FC, forwardRef, ReactNode } from "react";
+import { forwardRef, ReactNode } from "react";
+
 import Input from "./Input";
 
 interface FormFieldProps extends React.ComponentPropsWithoutRef<"input"> {

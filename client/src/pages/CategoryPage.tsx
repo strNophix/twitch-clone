@@ -7,7 +7,7 @@ function ChannelPage() {
       <div className="bg-neutral-900 flex-1 text-gray-100">
         <div className="max-w-[200rem] mx-12 mt-12">
           <div className="flex flex-row items-center space-x-4">
-            <img src={category.box_art_url} />
+            <img src={category.box_art_url} alt={category.name} />
             <div className="">
               <h1>{category.name}</h1>
               <div>

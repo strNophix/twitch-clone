@@ -1,4 +1,5 @@
 import { FC } from "react";
+
 import LoginModal from "../components/LoginModal";
 
 const LoginPage: FC = () => {

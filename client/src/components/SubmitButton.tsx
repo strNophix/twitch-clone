@@ -1,7 +1,7 @@
-import { FC } from "react";
 import clsx from "clsx";
+import { FC } from "react";
 
-interface ButtonProps extends React.ComponentPropsWithoutRef<"input"> {}
+type ButtonProps = React.ComponentPropsWithoutRef<"input">;
 
 const SubmitButton: FC<ButtonProps> = ({ className, ...rest }) => {
   return (

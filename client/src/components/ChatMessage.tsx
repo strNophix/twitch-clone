@@ -1,4 +1,5 @@
 import { FC } from "react";
+
 import ChatBadge from "./ChatBadge";
 
 const ChatMessage: FC = () => {
@@ -13,6 +14,7 @@ const ChatMessage: FC = () => {
       <span className="break-all align-middle">
         <img
           src="https://cdn.7tv.app/emote/60afbe0599923bbe7fe9bae1/2x"
+          alt="Poggies"
           className="inline w-7 h-7"
         />
       </span>

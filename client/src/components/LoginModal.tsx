@@ -1,8 +1,9 @@
+import { Dialog, Tab } from "@headlessui/react";
 import { FC } from "react";
-import { Dialog } from "@headlessui/react";
 import { createPortal } from "react-dom";
-import { Tab } from "@headlessui/react";
+
 import logo from "../assets/images/logo.png";
+
 import LoginForm from "./LoginForm";
 import LoginModalTab from "./LoginModalTab";
 import SignupForm from "./SignupForm";
@@ -20,8 +21,8 @@ const LoginModal: FC<LoginModelProps> = ({ defaultPage, isOpen, onClose }) => {
         <Dialog.Panel className="bg-zinc-900 text-gray-100 w-[420px] rounded-md py-12 px-6">
           <div className="flex flex-row items-center justify-center">
             <Dialog.Title className="text-xl">
-              <img src={logo} className="inline w-12 h-12" /> Log in to
-              twitch-clone
+              <img src={logo} className="inline w-12 h-12" alt="logo" /> Log in
+              to twitch-clone
             </Dialog.Title>
           </div>
           <Tab.Group defaultIndex={defaultPage}>

@@ -1,5 +1,5 @@
-import { FC } from "react";
 import clsx from "clsx";
+import { FC } from "react";
 import { NavLink } from "react-router-dom";
 
 export interface InlineLinkProps

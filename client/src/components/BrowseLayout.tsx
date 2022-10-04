@@ -1,10 +1,10 @@
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
+import { Outlet, NavLink } from "react-router-dom";
+
 import Button from "../components/Button";
 import NavBar from "../components/NavBar";
 import SideNavChannel from "../components/SideNavChannel";
-import { Outlet } from "react-router-dom";
 import streamData from "../placeholder/GetStreams";
-import { NavLink } from "react-router-dom";
 
 function BrowseLayout() {
   return (

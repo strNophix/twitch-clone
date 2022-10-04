@@ -20,7 +20,6 @@ const LoginForm: FC = () => {
         label="Username"
         className="py-2 px-2 outline-2 w-full"
         {...register("username")}
-        autoFocus
       />
       <FormField
         label="Password"
