@@ -1,6 +1,6 @@
-import { FC } from "react";
+import { FC } from 'react';
 
-import LoginModal from "../components/LoginModal";
+import LoginModal from '../components/LoginModal';
 
 const LoginPage: FC = () => {
   return (

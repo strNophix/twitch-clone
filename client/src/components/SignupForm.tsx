@@ -1,14 +1,13 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { FC } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { z } from "zod";
+import { zodResolver } from '@hookform/resolvers/zod';
+import { FC } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { z } from 'zod';
 
-import FormField from "./FormField";
-import InlineLink from "./InlineLink";
-import SubmitButton from "./SubmitButton";
+import FormField from './FormField';
+import InlineLink from './InlineLink';
+import SubmitButton from './SubmitButton';
 
-const PASSWORD_REGEX =
-  /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,64}$/;
+const PASSWORD_REGEX = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,64}$/;
 
 const SignupFormSchema = z
   .object({
@@ -19,7 +18,7 @@ const SignupFormSchema = z
   })
   .refine((data) => data.password === data.passwordRepeat, {
     message: "Passwords don't match",
-    path: ["passwordRepeat"],
+    path: ['passwordRepeat'],
   });
 
 type SignupFormValues = z.infer<typeof SignupFormSchema>;
@@ -36,34 +35,34 @@ const SignupForm: FC = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       <p className="text-sm">
-        Creating an account allows you to participate in chat, follow your
-        favorite channels, and broadcast from your own channel.
+        Creating an account allows you to participate in chat, follow your favorite channels, and
+        broadcast from your own channel.
       </p>
       <FormField
         label="Username"
-        {...register("username")}
+        {...register('username')}
         className="py-2 px-2 outline-2 w-full"
       />
       <FormField
         label="Password"
-        {...register("password")}
+        {...register('password')}
         type="password"
         className="py-2 px-2 outline-2 w-full"
       />
       <FormField
         label="Confirm Password"
-        {...register("passwordRepeat")}
+        {...register('passwordRepeat')}
         type="password"
         className="py-2 px-2 outline-2 w-full"
       />
       <FormField
         label="Email"
-        {...register("email")}
+        {...register('email')}
         type="email"
         className="py-2 px-2 outline-2 w-full"
       />
       <p className="text-sm text-center">
-        By clicking Sign Up, you are agreeing to twitch-clone&apos;s{" "}
+        By clicking Sign Up, you are agreeing to twitch-clone&apos;s{' '}
         <InlineLink to="https://tosdr.org/en/service/200" external>
           Terms of Service
         </InlineLink>

@@ -1,11 +1,11 @@
-import { UserIcon } from "@heroicons/react/24/outline";
-import { FC, useState } from "react";
+import { UserIcon } from '@heroicons/react/24/outline';
+import { FC, useState } from 'react';
 
-import logo from "../assets/images/logo.png";
+import logo from '../assets/images/logo.png';
 
-import Button from "./Button";
-import Input from "./Input";
-import LoginModal from "./LoginModal";
+import Button from './Button';
+import Input from './Input';
+import LoginModal from './LoginModal';
 
 const NavBar: FC = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -42,18 +42,12 @@ const NavBar: FC = () => {
         <div className="basis-1/4">
           <ul className="justify-end flex flex-row space-x-3 items-center">
             <li>
-              <Button
-                className="text-sm px-3 py-2 bg-neutral-700"
-                onClick={showLoginTab}
-              >
+              <Button className="text-sm px-3 py-2 bg-neutral-700" onClick={showLoginTab}>
                 Log In
               </Button>
             </li>
             <li>
-              <Button
-                className="text-sm px-3 py-2 bg-violet-500"
-                onClick={showSignupTab}
-              >
+              <Button className="text-sm px-3 py-2 bg-violet-500" onClick={showSignupTab}>
                 Sign Up
               </Button>
             </li>
@@ -65,11 +59,7 @@ const NavBar: FC = () => {
           </ul>
         </div>
       </div>
-      <LoginModal
-        isOpen={showLogin}
-        defaultPage={showTab}
-        onClose={() => setShowLogin(false)}
-      />
+      <LoginModal isOpen={showLogin} defaultPage={showTab} onClose={() => setShowLogin(false)} />
     </nav>
   );
 };

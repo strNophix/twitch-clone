@@ -1,4 +1,4 @@
-import { categories } from "../placeholder/SearchCategories";
+import { categories } from '../placeholder/SearchCategories';
 
 function ChannelPage() {
   const category = categories.data[0];

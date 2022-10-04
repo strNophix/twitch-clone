@@ -1,14 +1,10 @@
-import {
-  ArrowRightIcon,
-  HeartIcon,
-  UserIcon,
-} from "@heroicons/react/24/outline";
+import { ArrowRightIcon, HeartIcon, UserIcon } from '@heroicons/react/24/outline';
 
-import Button from "../components/Button";
-import ChatMessage from "../components/ChatMessage";
-import Input from "../components/Input";
-import { numFormatter } from "../lib/format";
-import streams from "../placeholder/GetStreams";
+import Button from '../components/Button';
+import ChatMessage from '../components/ChatMessage';
+import Input from '../components/Input';
+import { numFormatter } from '../lib/format';
+import streams from '../placeholder/GetStreams';
 
 function ChannelPage() {
   const stream = streams.data[1];

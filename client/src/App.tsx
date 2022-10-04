@@ -1,10 +1,10 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from 'react-router-dom';
 
-import BrowseLayout from "./components/BrowseLayout";
-import CategoryPage from "./pages/CategoryPage";
-import ChannelPage from "./pages/ChannelPage";
-import LoginPage from "./pages/LoginPage";
-import SignupPage from "./pages/SignupPage";
+import BrowseLayout from './components/BrowseLayout';
+import CategoryPage from './pages/CategoryPage';
+import ChannelPage from './pages/ChannelPage';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
 
 function App() {
   return (

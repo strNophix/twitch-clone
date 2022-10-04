@@ -1,36 +1,24 @@
-import clsx from "clsx";
-import { FC } from "react";
-import { NavLink } from "react-router-dom";
+import clsx from 'clsx';
+import { FC } from 'react';
+import { NavLink } from 'react-router-dom';
 
-export interface InlineLinkProps
-  extends React.ComponentPropsWithoutRef<"span"> {
+export interface InlineLinkProps extends React.ComponentPropsWithoutRef<'span'> {
   to: string;
   external?: boolean;
 }
 
-const InlineLink: FC<InlineLinkProps> = ({
-  to,
-  external,
-  className,
-  ...rest
-}) => {
+const InlineLink: FC<InlineLinkProps> = ({ to, external, className, ...rest }) => {
   if (external === true) {
     return (
       <a href={to}>
-        <span
-          className={clsx("text-violet-400 cursor-pointer text-sm", className)}
-          {...rest}
-        />
+        <span className={clsx('text-violet-400 cursor-pointer text-sm', className)} {...rest} />
       </a>
     );
   }
 
   return (
     <NavLink to={to}>
-      <span
-        className={clsx("text-violet-400 cursor-pointer text-sm", className)}
-        {...rest}
-      />
+      <span className={clsx('text-violet-400 cursor-pointer text-sm', className)} {...rest} />
     </NavLink>
   );
 };

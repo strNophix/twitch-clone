@@ -1,1 +1,1 @@
-export const numFormatter = Intl.NumberFormat("en", { notation: "compact" });
+export const numFormatter = Intl.NumberFormat('en', { notation: 'compact' });
