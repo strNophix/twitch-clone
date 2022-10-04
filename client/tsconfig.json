@@ -15,7 +15,11 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["@testing-library/crypress", "cypress"]
+    "types": ["@testing-library/crypress", "cypress"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": ["src", "cypress"],
   "references": [{ "path": "./tsconfig.node.json" }]
