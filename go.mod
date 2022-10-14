@@ -12,6 +12,16 @@ require (
 )
 
 require (
+	github.com/golang/protobuf v1.4.2 // indirect
+	github.com/joho/godotenv v1.4.0 // indirect
+	github.com/ory/client-go v0.2.0-alpha.48 // indirect
+	golang.org/x/net v0.0.0-20220225172249-27dd8689420f // indirect
+	golang.org/x/oauth2 v0.0.0-20210323180902-22b0adad7558 // indirect
+	google.golang.org/appengine v1.6.6 // indirect
+	google.golang.org/protobuf v1.25.0 // indirect
+)
+
+require (
 	github.com/andybalholm/brotli v1.0.4 // indirect
 	github.com/bwmarrin/snowflake v0.3.0 // direct
 	github.com/go-playground/locales v0.14.0 // indirect

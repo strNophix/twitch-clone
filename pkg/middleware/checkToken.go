@@ -1,18 +1,22 @@
 package middleware
 
 import (
-	"twitch-clone/pkg/jwt"
+	"context"
+	"errors"
+
+	"twitch-clone/pkg/auth"
 
 	"github.com/gofiber/fiber/v2"
 )
 
-/*CheckToken : Check the validate of the jwt*/
-func CheckToken(c *fiber.Ctx) error {
-	_, _, _, err := jwt.ProcessJWT(c.Get("Authorization"))
+func CheckSession(c *fiber.Ctx) error {
+	cookie := c.Cookies("ory_kratos_session")
+	if cookie == "" {
+		return errors.New("no session found in cookie")
+	}
+	_, _, err := auth.AuthClient.V0alpha2Api.ToSession(context.Background()).Cookie(cookie).Execute()
 	if err != nil {
 		return err
 	}
-
-	c.Next()
 	return nil
 }
