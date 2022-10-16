@@ -1,6 +1,6 @@
-import { FC } from 'react';
+import { FC } from "react"
 
-import ChatBadge from './ChatBadge';
+import ChatBadge from "./ChatBadge"
 
 const ChatMessage: FC = () => {
   return (
@@ -19,7 +19,7 @@ const ChatMessage: FC = () => {
         />
       </span>
     </p>
-  );
-};
+  )
+}
 
-export default ChatMessage;
+export default ChatMessage

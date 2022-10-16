@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
 import { forwardRef, ReactNode } from "react"
 
-import Input from "./Input"
+import Input from "../Input"
 
 interface FormFieldProps extends React.ComponentPropsWithoutRef<"input"> {
   label?: string

@@ -1,16 +1,15 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { SelfServiceRegistrationFlow } from "@ory/client"
 import { useRouter } from "next/router"
-import { useMemo } from "react"
 import { FC, useEffect, useState } from "react"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { z } from "zod"
-import ory from "../services/ory"
+import ory from "../../services/ory"
 
-import FormField from "./FormField"
-import InlineLink from "./InlineLink"
-import Input from "./Input"
-import SubmitButton from "./SubmitButton"
+import FormField from "../common/form/FormField"
+import InlineLink from "../common/InlineLink"
+import Input from "../common/Input"
+import SubmitButton from "../common/form/SubmitButton"
 
 const PASSWORD_REGEX =
   /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,64}$/

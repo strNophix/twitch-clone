@@ -1,30 +1,30 @@
-import { FC } from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { FC } from "react"
+import { useForm, SubmitHandler } from "react-hook-form"
 
-import FormField from './FormField';
-import InlineLink from './InlineLink';
-import SubmitButton from './SubmitButton';
+import FormField from "../common/form/FormField"
+import InlineLink from "../common/InlineLink"
+import SubmitButton from "../common/form/SubmitButton"
 
 interface LoginFormValues {
-  username: string;
-  password: string;
+  username: string
+  password: string
 }
 
 const LoginForm: FC = () => {
-  const { register, handleSubmit } = useForm<LoginFormValues>();
-  const onSubmit: SubmitHandler<LoginFormValues> = (data) => console.log(data);
+  const { register, handleSubmit } = useForm<LoginFormValues>()
+  const onSubmit: SubmitHandler<LoginFormValues> = (data) => console.log(data)
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       <FormField
         label="Username"
         className="py-2 px-2 outline-2 w-full"
-        {...register('username')}
+        {...register("username")}
       />
       <FormField
         label="Password"
         type="password"
-        {...register('password')}
+        {...register("password")}
         className="py-2 px-2 outline-2 w-full"
         bottomElement={
           <InlineLink to="#" className="block mt-2">
@@ -34,7 +34,7 @@ const LoginForm: FC = () => {
       />
       <SubmitButton className="w-full" value="Log In" />
     </form>
-  );
-};
+  )
+}
 
-export default LoginForm;
+export default LoginForm

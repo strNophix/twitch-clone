@@ -1,7 +1,7 @@
-import { categories } from '../../placeholder/SearchCategories';
+import { categories } from "../../placeholder/SearchCategories"
 
 function ChannelPage() {
-  const category = categories.data[0];
+  const category = categories.data[0]
   return (
     <div className="flex-1 flex flex-row">
       <div className="bg-neutral-900 flex-1 text-gray-100">
@@ -20,7 +20,7 @@ function ChannelPage() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default ChannelPage;
+export default ChannelPage
