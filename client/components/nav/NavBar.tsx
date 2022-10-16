@@ -3,21 +3,25 @@ import { FC, useState } from "react"
 
 import Button from "../common/Button"
 import Logo from "../common/Logo"
-import LoginModal from "../login/LoginModal"
+import LoginModal, { LoginModelProps } from "../login/LoginModal"
 
 const NavBar: FC = () => {
-  const [showLogin, setShowLogin] = useState(false)
-  const [showTab, setShowTab] = useState(0)
+  const [modalProps, setModalProps] = useState<LoginModelProps>({
+    isOpen: false,
+    defaultPage: 0,
+  })
 
-  const showLoginTab = () => {
-    setShowTab(0)
-    setShowLogin(true)
-  }
+  const showLoginTab = () =>
+    setModalProps({
+      defaultPage: 0,
+      isOpen: true,
+    })
 
-  const showSignupTab = () => {
-    setShowTab(1)
-    setShowLogin(true)
-  }
+  const showSignupTab = () =>
+    setModalProps({
+      defaultPage: 1,
+      isOpen: true,
+    })
 
   return (
     <nav className="bg-zinc-800 w-screen font-semibold border-b border-b-black">
@@ -56,9 +60,8 @@ const NavBar: FC = () => {
         </div>
       </div>
       <LoginModal
-        isOpen={showLogin}
-        defaultPage={showTab}
-        onClose={() => setShowLogin(false)}
+        {...modalProps}
+        onClose={() => setModalProps((old) => ({ ...old, isOpen: false }))}
       />
     </nav>
   )
