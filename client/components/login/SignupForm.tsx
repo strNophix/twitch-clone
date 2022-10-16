@@ -1,18 +1,14 @@
 import { zodResolver } from "@hookform/resolvers/zod"
-import { SelfServiceRegistrationFlow } from "@ory/client"
-import { useRouter } from "next/router"
-import { FC, useEffect, useState } from "react"
+import { FC } from "react"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { z } from "zod"
-import ory from "../../services/ory"
 
 import FormField from "../common/form/FormField"
 import InlineLink from "../common/InlineLink"
 import Input from "../common/Input"
 import SubmitButton from "../common/form/SubmitButton"
-
-const PASSWORD_REGEX =
-  /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,64}$/
+import { PASSWORD_REGEX } from "../../config"
+import useSignUpFlow from "../../hooks/useSignUpFlow"
 
 const SignupFormSchema = z
   .object({
@@ -47,71 +43,35 @@ const formFields = [
 ]
 
 const SignupForm: FC = () => {
-  const router = useRouter()
-  const [flow, setFlow] = useState<SelfServiceRegistrationFlow>()
-  const { flow: flowId, return_to: returnTo } = router.query
+  const signUpFlow = useSignUpFlow()
   const { register, handleSubmit, formState } = useForm<SignupFormValues>({
     resolver: zodResolver(SignupFormSchema),
   })
 
-  useEffect(() => {
-    const func = async () => {
-      if (!router.isReady || flow) {
-        return
-      }
-
-      let serviceFlow
-      if (flowId) {
-        serviceFlow = await ory.getSelfServiceRegistrationFlow(String(flowId))
-      } else {
-        serviceFlow =
-          await ory.initializeSelfServiceRegistrationFlowForBrowsers(
-            returnTo ? String(returnTo) : undefined,
-          )
-      }
-
-      setFlow(serviceFlow.data)
-    }
-
-    func()
-  }, [flowId, router, router.isReady, returnTo, flow])
-
   const onSubmit: SubmitHandler<SignupFormValues> = async (data) => {
-    await router.push(`/signup?flow=${flow?.id}`, undefined, {
-      shallow: true,
+    await signUpFlow.submitData({
+      csrf_token: data.csrfToken,
+      method: "password",
+      password: data.password,
+      traits: {
+        email: data.email,
+      },
     })
-    try {
-      const resp = await ory.submitSelfServiceRegistrationFlow(
-        String(flow?.id),
-        {
-          csrf_token: data.csrfToken,
-          method: "password",
-          password: data.password,
-          traits: {
-            email: data.email,
-            // username: data.username,
-          },
-        },
-      )
-      console.log(resp)
-    } catch (e) {
-      console.log(e)
-    }
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      {flow && (
-        <Input
-          hidden={true}
-          value={flow.ui.nodes[0].attributes.value}
-          {...register("csrfToken")}
-        />
-      )}
       <p className="text-sm">
         Creating an account allows you to participate in chat, follow your
         favorite channels, and broadcast from your own channel.
       </p>
+      {signUpFlow.flow && (
+        <Input
+          hidden={true}
+          value={signUpFlow.flow.ui.nodes[0].attributes.value}
+          {...register("csrfToken")}
+        />
+      )}
       {formFields.map((field) => (
         <FormField
           key={field.id}
@@ -134,7 +94,11 @@ const SignupForm: FC = () => {
         </InlineLink>
         .
       </p>
-      <SubmitButton className="w-full" value="Sign Up" />
+      <SubmitButton
+        disabled={!signUpFlow.flow}
+        className="w-full"
+        value="Sign Up"
+      />
     </form>
   )
 }

@@ -2,7 +2,6 @@ import { UserIcon } from "@heroicons/react/24/outline"
 import { FC, useState } from "react"
 
 import Button from "../common/Button"
-import Input from "../common/Input"
 import LoginModal from "../login/LoginModal"
 
 const NavBar: FC = () => {
