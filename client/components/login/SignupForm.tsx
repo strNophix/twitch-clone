@@ -7,24 +7,14 @@ import FormField from "../common/form/FormField"
 import InlineLink from "../common/InlineLink"
 import Input from "../common/Input"
 import SubmitButton from "../common/form/SubmitButton"
-import { PASSWORD_REGEX } from "../../config"
 import useSignUpFlow from "../../hooks/useSignUpFlow"
+import * as validation from "../../config/validation"
 
 const SignupFormSchema = z
   .object({
     csrfToken: z.string(),
-    username: z
-      .string()
-      .trim()
-      .min(1, { message: "Username must be at least 1 character long." })
-      .max(16, { message: "Username can't be longer than 16 characters.." }),
-    password: z
-      .string()
-      .trim()
-      .regex(
-        PASSWORD_REGEX,
-        "Password must be 8-64 long and must contain a number, uppercase, lowercase and special character.",
-      ),
+    username: validation.username,
+    password: validation.password,
     passwordRepeat: z.string().trim(),
     email: z.string().email({ message: "Not a valid email address" }).trim(),
   })

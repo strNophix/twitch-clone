@@ -1,14 +1,13 @@
 import {
   SelfServiceRegistrationFlow,
-  Session,
-  SubmitSelfServiceRegistrationFlowBody,
+  SubmitSelfServiceLoginFlowBody,
 } from "@ory/client"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import ory from "../services/ory"
 import useSession from "./useSession"
 
-export const useSignUpFlow = () => {
+const useLogInFlow = () => {
   const router = useRouter()
   const [flow, setFlow] = useState<SelfServiceRegistrationFlow>()
   const { flow: flowId } = router.query
@@ -22,10 +21,9 @@ export const useSignUpFlow = () => {
 
       let serviceFlow
       if (flowId) {
-        serviceFlow = await ory.getSelfServiceRegistrationFlow(String(flowId))
+        serviceFlow = await ory.getSelfServiceLoginFlow(String(flowId))
       } else {
-        serviceFlow =
-          await ory.initializeSelfServiceRegistrationFlowForBrowsers()
+        serviceFlow = await ory.initializeSelfServiceLoginFlowForBrowsers()
       }
 
       setFlow(serviceFlow.data)
@@ -34,14 +32,14 @@ export const useSignUpFlow = () => {
     func()
   }, [flowId, router, router.isReady, flow])
 
-  const submitData = async (data: SubmitSelfServiceRegistrationFlowBody) => {
-    await router.push(`/signup?flow=${flow?.id}`, undefined, {
+  const submitData = async (data: SubmitSelfServiceLoginFlowBody) => {
+    await router.push(`/login?flow=${flow?.id}`, undefined, {
       shallow: true,
     })
     ory
-      .submitSelfServiceRegistrationFlow(String(flow?.id), data)
+      .submitSelfServiceLoginFlow(String(flow?.id), undefined, data)
       .then(async ({ data }) => {
-        updateSession(data.session as Session)
+        updateSession(data.session)
         await router.push(flow?.return_to || "/")
       })
       .catch((err) => {
@@ -52,4 +50,4 @@ export const useSignUpFlow = () => {
   return { flow, submitData }
 }
 
-export default useSignUpFlow
+export default useLogInFlow
