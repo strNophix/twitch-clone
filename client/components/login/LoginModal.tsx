@@ -8,11 +8,15 @@ import SignupForm from "./SignupForm"
 
 export interface LoginModelProps {
   isOpen: boolean
-  onClose: () => any
+  onClose?: () => any
   defaultPage?: number
 }
 
-const LoginModal: FC<LoginModelProps> = ({ defaultPage, isOpen, onClose }) => {
+const LoginModal: FC<LoginModelProps> = ({
+  defaultPage,
+  isOpen,
+  onClose = (b: boolean) => {},
+}) => {
   return (
     <Dialog open={isOpen} onClose={onClose} className="relative z-50">
       <div className="bg-black/80 fixed inset-0 flex items-center justify-center">
