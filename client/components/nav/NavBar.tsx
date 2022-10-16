@@ -2,6 +2,7 @@ import { UserIcon } from "@heroicons/react/24/outline"
 import { FC, useState } from "react"
 
 import Button from "../common/Button"
+import Logo from "../common/Logo"
 import LoginModal from "../login/LoginModal"
 
 const NavBar: FC = () => {
@@ -24,11 +25,7 @@ const NavBar: FC = () => {
         <div>
           <ul className="flex flex-row space-x-8 items-center">
             <li>
-              <img
-                src="./assets/images/logo.png"
-                className="w-8 h-8"
-                alt="logo"
-              />
+              <Logo className="w-8 h-8" />
             </li>
           </ul>
         </div>
