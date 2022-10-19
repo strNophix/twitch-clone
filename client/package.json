@@ -21,6 +21,7 @@
     "@hookform/resolvers": "^2.9.8",
     "@ory/client": "0.0.1-alpha.169",
     "@ory/integrations": "0.2.5",
+    "@sentry/nextjs": "^7.16.0",
     "axios": "^1.1.2",
     "clsx": "^1.2.1",
     "next": "12.1.5",
@@ -32,6 +33,7 @@
     "zustand": "^4.1.2"
   },
   "devDependencies": {
+    "@sentry/cli": "^2.7.0",
     "@trivago/prettier-plugin-sort-imports": "^2.0.2",
     "@types/node": "16.11.6",
     "@types/react": "17.0.33",
