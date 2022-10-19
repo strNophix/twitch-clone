@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@faker-js/faker': ^7.6.0
   '@headlessui/react': ^1.7.3
   '@heroicons/react': ^2.0.12
   '@hookform/resolvers': ^2.9.8
@@ -48,6 +49,7 @@ dependencies:
   zustand: 4.1.2_react@17.0.2
 
 devDependencies:
+  '@faker-js/faker': 7.6.0
   '@sentry/cli': 2.7.0
   '@trivago/prettier-plugin-sort-imports': 2.0.4_prettier@2.7.1
   '@types/node': 16.11.6
@@ -374,6 +376,11 @@ packages:
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@faker-js/faker/7.6.0:
+    resolution: {integrity: sha512-XK6BTq1NDMo9Xqw/YkYyGjSsg44fbNwYRx7QK2CuoQgyy+f1rrTDHoExVM5PsyXCtfl2vs2vVJ0MN0yN6LppRw==}
+    engines: {node: '>=14.0.0', npm: '>=6.0.0'}
     dev: true
 
   /@headlessui/react/1.7.3_sfoxds7t5ydpegc3knd667wn6m:

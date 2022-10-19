@@ -1,24 +1,20 @@
 import { FC } from "react"
+import { ChatMessage } from "../../types"
 
-import ChatBadge from "./ChatBadge"
+export interface ChatMessageProps {
+  message: ChatMessage
+}
 
-const ChatMessage: FC = () => {
+const ChatMessage: FC<ChatMessageProps> = ({
+  message: { author, content },
+}) => {
   return (
-    <p className="mx-2 p-2 hover:bg-neutral-700 text-sm rounded-md">
+    <div className="mx-2 p-2 hover:bg-neutral-700 text-sm rounded-md">
       <div className="space-x-1 inline">
-        <ChatBadge />
-        <ChatBadge />
-        <span className="align-middle">Username</span>
+        <span className="align-middle">{author}: </span>
       </div>
-      <span className="align-middle">: </span>
-      <span className="break-all align-middle">
-        <img
-          src="https://cdn.7tv.app/emote/60afbe0599923bbe7fe9bae1/2x"
-          alt="Poggies"
-          className="inline w-7 h-7"
-        />
-      </span>
-    </p>
+      <span className="break-all align-middle">{content}</span>
+    </div>
   )
 }
 

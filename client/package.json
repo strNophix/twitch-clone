@@ -33,6 +33,7 @@
     "zustand": "^4.1.2"
   },
   "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
     "@sentry/cli": "^2.7.0",
     "@trivago/prettier-plugin-sort-imports": "^2.0.2",
     "@types/node": "16.11.6",
