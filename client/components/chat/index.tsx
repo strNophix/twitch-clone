@@ -1,10 +1,12 @@
 import { FC, useEffect, useState } from "react"
 import { CHAT_URL } from "../../config"
+import useSession from "../../hooks/useSession"
 import { ChatMessage as Message } from "../../types"
 import Input from "../common/Input"
 import ChatMessage from "../message/ChatMessage"
 
 const Chat: FC = () => {
+  const { session } = useSession()
   const [messages, setMessages] = useState<Message[]>([])
 
   useEffect(() => {
@@ -26,7 +28,11 @@ const Chat: FC = () => {
         ))}
       </div>
       <div className="m-2">
-        <Input className="w-full p-2" placeholder="Send a message" />
+        <Input
+          disabled={!session}
+          className="w-full p-2"
+          placeholder="Send a message"
+        />
       </div>
     </div>
   )
