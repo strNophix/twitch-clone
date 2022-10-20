@@ -1,9 +1,9 @@
 export interface ChatMessage {
-  messageId: bigint
-  fromUserId: bigint
+  messageId: number
+  fromUserID: number
   fromUser: string
-  toUserId: bigint
+  toUserID: number
   toUser: string
   content: string
-  createdAt: bigint
+  createdAt: number
 }
