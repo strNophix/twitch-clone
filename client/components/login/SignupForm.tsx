@@ -45,6 +45,7 @@ const SignupForm: FC = () => {
       password: data.password,
       traits: {
         email: data.email,
+        username: data.username,
       },
     })
   }
