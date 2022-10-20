@@ -3,6 +3,7 @@ import Input from "../../components/common/Input"
 import { NextPage } from "next"
 import BrowseLayout from "../../components/layout/BrowseLayout"
 import { createRandomMessage } from "../../placeholder/chatMessages"
+import Chat from "../../components/chat"
 
 const ChannelPage: NextPage = () => {
   return (
@@ -18,19 +19,7 @@ const ChannelPage: NextPage = () => {
             <div>1:14:32</div>
           </div>
         </div>
-        <div className="bg-zinc-900 w-80 border-l border-l-zinc-700 flex flex-col">
-          <div className="flex flex-row justify-center items-center border-b border-b-zinc-700 p-2 h-12">
-            <p className="uppercase font-semibold text-sm">Stream Chat</p>
-          </div>
-          <div className="flex-1 overflow-scrollbar">
-            {new Array(60).fill(0).map((_, i) => (
-              <ChatMessage message={createRandomMessage()} key={i} />
-            ))}
-          </div>
-          <div className="m-2">
-            <Input className="w-full p-2" placeholder="Send a message" />
-          </div>
-        </div>
+        <Chat />
       </div>
     </BrowseLayout>
   )

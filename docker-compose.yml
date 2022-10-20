@@ -7,19 +7,27 @@ services:
   #     - app-postgres
   #   ports:
   #     - 5000:5000
-  rtmp:
-    image: alfg/nginx-rtmp
+  # rtmp:
+  #   image: alfg/nginx-rtmp
+  #   ports:
+  #     - 1935:1935
+  #     - 8080:80
+  # app-postgres:
+  #   image: postgres:9.6
+  #   ports:
+  #     - '5433:5432'
+  #   environment:
+  #     - POSTGRES_USER=${POSTGRES_USER}
+  #     - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+  #     - POSTGRES_DB=${POSTGRES_DB}
+  chat-service-scylla:
+    image: scylladb/scylla
     ports:
-      - 1935:1935
-      - 8080:80
-  app-postgres:
-    image: postgres:9.6
-    ports:
-      - '5433:5432'
-    environment:
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_DB=${POSTGRES_DB}
+      - 7000:7000
+      - 7001:7001
+      - 9042:9042
+      - 9160:9160
+      - 10000:10000
   kratos-migrate:
     image: oryd/kratos:v0.10.1
     environment:
