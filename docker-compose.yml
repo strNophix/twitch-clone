@@ -21,7 +21,7 @@ services:
   #     - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
   #     - POSTGRES_DB=${POSTGRES_DB}
   chat-service-scylla:
-    image: scylladb/scylla
+    image: docker.io/scylladb/scylla
     ports:
       - 7000:7000
       - 7001:7001
@@ -29,7 +29,7 @@ services:
       - 9160:9160
       - 10000:10000
   kratos-migrate:
-    image: oryd/kratos:v0.10.1
+    image: docker.io/oryd/kratos:v0.10.1
     environment:
       - DSN=postgres://${KRATOS_POSTGRES_USER}:${KRATOS_POSTGRES_PASSWORD}@kratos-postgres:5432/${KRATOS_POSTGRES_DB}?sslmode=disable&max_conns=20&max_idle_conns=4
     volumes:
@@ -41,7 +41,7 @@ services:
   kratos:
     depends_on:
       - kratos-migrate
-    image: oryd/kratos:v0.10.1
+    image: docker.io/oryd/kratos:v0.10.1
     ports:
       - '4433:4433' # public
       - '4434:4434' # admin
@@ -57,12 +57,12 @@ services:
         source: .docker/kratos
         target: /etc/config/kratos
   mailslurper:
-    image: oryd/mailslurper:latest-smtps
+    image: docker.io/oryd/mailslurper:latest-smtps
     ports:
       - '4436:4436'
       - '4437:4437'
   kratos-postgres:
-    image: postgres:9.6
+    image: docker.io/postgres:9.6
     ports:
       - '5432:5432'
     environment:
