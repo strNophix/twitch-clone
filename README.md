@@ -1,6 +1,6 @@
-# twitch-clone
-
 ![](assets/logo.png)
+
+# twitch-clone
 
 A Twitch clone to experiment with various technologies.
 
@@ -13,6 +13,29 @@ A Twitch clone to experiment with various technologies.
 - Next.JS for the frontend, React with SSR important for SEO and to speed up the initial load.
 - Tailwind for styling, eliminating the need to manage stylesheets.
 
+## Dependencies
+- [podman](https://github.com/containers/podman)
+- [pnpm](https://github.com/pnpm/pnpm)
+- [node](https://github.com/nodejs/node)
+- [go](https://github.com/golang/go)
+
+## Usage
+Start the necessary infrastructure:
+```sh
+podman-compose up
+```
+
+Start the frontend:
+```sh
+cd client
+pnpm i
+pnpm run dev
+```
+
+Start the chat-service:
+```
+go run ./cmd/chat-service/main.go
+```
 
 ## Disclaimer
 I am in no way affiliated with Amazon or Twitch.
